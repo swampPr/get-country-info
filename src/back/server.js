@@ -3,7 +3,7 @@ import { logger } from './middlewares/logger.js';
 import { jsonMiddleware } from './middlewares/jsonMiddleware.js';
 import { router } from './routers/getCountryInfoRouter.js';
 
-const PORT = 5000;
+const PORT = process.env.PORT;
 
 export const server = http.createServer((req, res) => {
     logger(req, res, () => {
