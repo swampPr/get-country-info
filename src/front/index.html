@@ -7,6 +7,7 @@
         <title>Document</title>
         <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet" />
         <link href="/style.css" rel="stylesheet" />
+        <link rel="icon" href="/favicon" type="image/png" />
     </head>
     <body>
         <h1>Country Info Getter</h1>
@@ -17,7 +18,7 @@
             <option value="" disabled selected hidden>Pick a country</option>
         </select>
         <br />
-        <!-- NOTE: ADD ALL BUTTONS HERE. CHECK NOTION FOR WHICH BUTTONS AND DECIDE-->
+        <!-- NOTE: ADD ALL BUTTONS HERE.-->
 
         <button id="get-all">Get all information</button>
         <br />
@@ -36,6 +37,7 @@
             <ul id="languages-list"></ul>
         </label>
         <p id="population"></p>
+        <p id="car-side"></p>
         <p id="currency"></p>
         <label id="timezones-label">
             <span id="timezones-heading"></span>
@@ -44,7 +46,7 @@
         <p id="region"></p>
         <label id="landlock-label" style="display: none">
             <span id="landlocked-heading"></span>
-            <input type="radio" id="landlocked-radio" disabled checked />
+            <input type="radio" id="landlocked-radio" checked />
             <span id="landlocked-bool">True</span>
         </label>
         <br />

@@ -16,7 +16,7 @@ const htmlMatch = (req) => req.url === '/' || req.url.endsWith('.html') || req.h
 const jsMatch = (req) => req.url.endsWith('.js') || req.headers.accept?.includes('text/javascript');
 const jsonMatch = (req) => req.headers.accept?.includes('application/json');
 
-//NOTE: Array of objects that hold the function to match the request to the proper middlewares and the middleware function for that URL
+//NOTE: Array of objects that hold the function to match the request to the proper middlewares and the middleware function for that request
 const middlewareStack = [
     { match: always, middleware: logger },
     { match: cssMatch, middleware: cssMid },

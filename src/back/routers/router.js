@@ -6,6 +6,7 @@ import { parse } from 'url';
 import { serveHTML } from '../handlers/htmlServe.js';
 import { serveCSS } from '../handlers/cssServe.js';
 import { serveJS } from '../handlers/jsServe.js';
+import { serveFavicon } from '../handlers/faviconServe.js';
 
 //NOTE: This object routes the request to the appropriate handler
 const routers = {
@@ -14,7 +15,8 @@ const routers = {
     'GET /': serveHTML,
     'GET /index.html': serveHTML,
     'GET /style.css': serveCSS,
-    'GET /app.js': serveJS
+    'GET /app.js': serveJS,
+    'GET /favicon': serveFavicon
 };
 
 //NOTE: This function will validate the URL and map it to the appropriate handler

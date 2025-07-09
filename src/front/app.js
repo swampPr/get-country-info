@@ -9,6 +9,7 @@ const capital = document.getElementById('capital');
 const languagesList = document.getElementById('languages-list');
 const languagesHeading = document.getElementById('languages-heading');
 const population = document.getElementById('population');
+const carSide = document.getElementById('car-side');
 const currency = document.getElementById('currency');
 const timezonesHeading = document.getElementById('timezones-heading');
 const timezonesList = document.getElementById('timezones');
@@ -97,6 +98,7 @@ function render(countryInfo) {
     languagesList.innerHTML = languagesListEls;
 
     population.innerHTML = `Population: approximately <b>${countryInfo.population.toLocaleString()}</b> persons`;
+    carSide.innerHTML = `Drives on the <b>${countryInfo.car.side}</b> side of the road`;
     currency.textContent = `Currency: ${countryInfo.currency.name} ( ${countryInfo.currency.code} ) `;
 
     let timezonesListEls = '';

@@ -36,6 +36,9 @@ export async function getAllCountryInfo(req, res) {
                 alt: ''
             },
             coatOfArms: '',
+            car: {
+                side: ''
+            },
             population: 0,
             currency: {
                 code: '',
@@ -69,6 +72,7 @@ export async function getAllCountryInfo(req, res) {
         allCountryInfo.coatOfArms = `${data[0].coatOfArms.png}`;
 
         allCountryInfo.population = data[0].population;
+        allCountryInfo.car.side = data[0].car.side;
 
         const currencies = data[0].currencies;
 
