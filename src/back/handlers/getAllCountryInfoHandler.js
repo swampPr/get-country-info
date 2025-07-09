@@ -1,5 +1,7 @@
+//NOTE: This function will communicate with the REST countries API and return the needed information
 export async function getAllCountryInfo(req, res) {
     console.log(`HANDLER GOT REQUEST!`);
+    //NOTE: Pull out the country to look for from the request params
     const country = req.params?.code;
     if (!country) {
         res.writeHead(404, {
@@ -9,6 +11,7 @@ export async function getAllCountryInfo(req, res) {
         res.end('COUNTRY NOT FOUND');
     }
     try {
+        //NOTE: Get the country info from REST countries
         const response = await fetch(`https://restcountries.com/v3.1/alpha/${country}`, {
             mode: 'cors',
             headers: {
@@ -17,6 +20,7 @@ export async function getAllCountryInfo(req, res) {
         });
 
         const data = await response.json();
+
         //NOTE: Response object with all the necessary country info:
         const allCountryInfo = {
             name: [],
@@ -32,7 +36,7 @@ export async function getAllCountryInfo(req, res) {
                 alt: ''
             },
             coatOfArms: '',
-            population: '',
+            population: 0,
             currency: {
                 code: '',
                 name: ''
@@ -68,6 +72,7 @@ export async function getAllCountryInfo(req, res) {
 
         const currencies = data[0].currencies;
 
+        //NOTE: This for loop will run through each currency code in the currencies object and add the currency code and the currency name to the response object. Just incase the response contained multiple currency codes
         for (let code in currencies) {
             const info = currencies[code];
             allCountryInfo.currency.code = code;
@@ -75,6 +80,7 @@ export async function getAllCountryInfo(req, res) {
             break;
         }
 
+        //NOTE: Send response as a JSON object
         res.end(JSON.stringify(allCountryInfo));
     } catch (err) {
         console.log(err);

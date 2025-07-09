@@ -1,0 +1,137 @@
+/* NOTE: MADE BY CHATGPT BECAUSE I REALLY REALLY DON'T LIKE CSS. EVERYTHING ELSE IS ME*/
+
+/* Reset some default spacing */
+body {
+    margin: 0;
+    padding: 0;
+    font-family: system-ui, sans-serif;
+    background-color: #f9f9f9;
+    color: #333;
+    line-height: 1.6;
+}
+
+/* Center and pad the content */
+body,
+html {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 2rem;
+}
+
+/* Titles with soft background and subtle shadow */
+h1 {
+    margin-bottom: 0.5rem;
+    font-size: 2rem;
+    color: #1a1a1a;
+}
+
+h2,
+h3,
+h4,
+p {
+    text-align: center;
+    margin: 0.5rem 0;
+    background-color: #fafafa; /* lighter than list items */
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+    padding: 0.6rem 1.2rem;
+}
+
+/* Slightly stronger emphasis for headings */
+h2 {
+    font-weight: 700;
+    font-size: 1.5rem;
+    color: #222;
+}
+
+h3,
+h4 {
+    font-weight: 500;
+    font-size: 1.2rem;
+    color: #444;
+}
+
+p {
+    font-weight: 400;
+    font-size: 1rem;
+    color: #555;
+}
+
+/* Dropdown */
+#country-select {
+    width: 300px;
+    padding: 0.5rem;
+    font-size: 1rem;
+    margin-top: 1rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+/* Button */
+#get-all {
+    margin-top: 1rem;
+    padding: 0.5rem 1rem;
+    background-color: #0077ff;
+    color: white;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-weight: bold;
+}
+
+#get-all:hover {
+    background-color: #005fe0;
+}
+
+/* Lists */
+label {
+    display: block;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0.5rem 0;
+}
+
+ul li {
+    background-color: #fff;
+    margin: 0.25rem auto;
+    padding: 0.4rem 0.6rem;
+    border-radius: 6px;
+    width: fit-content;
+    box-shadow: 0 0 3px rgba(0, 0, 0, 0.1);
+}
+
+/* Images */
+img {
+    margin-top: 1rem;
+    max-width: 90%;
+    height: auto;
+    border-radius: 6px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* Landlocked label */
+#landlock-label {
+    margin-top: 1rem;
+    font-weight: bold;
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    body {
+        padding: 1rem;
+    }
+
+    #country-select {
+        width: 100%;
+    }
+
+    img {
+        max-width: 100%;
+    }
+}

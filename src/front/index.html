@@ -1,10 +1,60 @@
 <!doctype html>
+
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=k, initial-scale=1.0" />
-    <title>Document</title>
-    <script defer src="app.js"></script>
-  </head>
-  <body></body>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=k, initial-scale=1.0" />
+        <title>Document</title>
+        <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet" />
+        <link href="/style.css" rel="stylesheet" />
+    </head>
+    <body>
+        <h1>Country Info Getter</h1>
+        <h3>
+            Click the dropdown menu below and <b><u>type</u></b> the name of the country you want to see information for
+        </h3>
+        <select id="country-select" name="country">
+            <option value="" disabled selected hidden>Pick a country</option>
+        </select>
+        <br />
+        <!-- NOTE: ADD ALL BUTTONS HERE. CHECK NOTION FOR WHICH BUTTONS AND DECIDE-->
+
+        <button id="get-all">Get all information</button>
+        <br />
+        <br />
+        <br />
+        <!-- NOTE: ADD ALL DIVS HERE FOR COUNTRY INFO -->
+        <h2 id="country-name"></h2>
+        <h4 id="country-name-official"></h4>
+        <label id="continents-label">
+            <span id="continents-heading"></span>
+            <ul id="continents"></ul>
+        </label>
+        <p id="capital"></p>
+        <label id="languages-label">
+            <span id="languages-heading"></span>
+            <ul id="languages-list"></ul>
+        </label>
+        <p id="population"></p>
+        <p id="currency"></p>
+        <label id="timezones-label">
+            <span id="timezones-heading"></span>
+            <ul id="timezones"></ul>
+        </label>
+        <p id="region"></p>
+        <label id="landlock-label" style="display: none">
+            <span id="landlocked-heading"></span>
+            <input type="radio" id="landlocked-radio" disabled checked />
+            <span id="landlocked-bool">True</span>
+        </label>
+        <br />
+        <br />
+        <img src="" alt="" id="flag-img" />
+        <br />
+        <br />
+        <img src="" id="coat-img" />
+
+        <script src="https://cdn.jsdelivr.net/npm/tom-select/dist/js/tom-select.complete.min.js"></script>
+        <script src="/app.js" type="module"></script>
+    </body>
 </html>
