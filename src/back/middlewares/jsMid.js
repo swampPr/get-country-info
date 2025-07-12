@@ -1,4 +1,4 @@
-//NOTE: If the browser requests a .js file, this middleware will add important headers to the response
+//NOTE: This middleware will add important headers to .js file responses
 export function jsMid(req, res, next) {
     res.setHeader('Content-Type', 'text/javascript');
     next();

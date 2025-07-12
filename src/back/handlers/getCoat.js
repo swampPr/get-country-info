@@ -1,7 +1,6 @@
-import { fetchAllInfo } from '../services/fetchAllInfo.js';
+import { fetchCoat } from '../services/fetchCoat.js';
 
-export async function getAllCountryInfo(req, res) {
-    console.log(`HANDLER GOT REQUEST!`);
+export async function getCoat(req, res) {
     const countryCode = req.params?.code;
     if (!countryCode) {
         res.writeHead(404, {
@@ -10,17 +9,18 @@ export async function getAllCountryInfo(req, res) {
 
         res.end('COUNTRY NOT FOUND');
     }
+
     try {
         res.statusCode = 200;
-        const countryInfo = await fetchAllInfo(countryCode);
 
-        res.end(JSON.stringify(countryInfo));
+        const countryCoat = await fetchCoat(countryCode);
+
+        res.end(JSON.stringify(countryCoat));
     } catch (err) {
         console.log(err);
         res.writeHead(500, {
-            'content-type': 'text/plain'
+            'content-type': 'application/json'
         });
-
         res.end('FETCH FAILED');
     }
 }

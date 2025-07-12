@@ -1,7 +1,6 @@
-import { fetchAllInfo } from '../services/fetchAllInfo.js';
+import { fetchFlag } from '../services/fetchFlag.js';
 
-export async function getAllCountryInfo(req, res) {
-    console.log(`HANDLER GOT REQUEST!`);
+export async function getFlag(req, res) {
     const countryCode = req.params?.code;
     if (!countryCode) {
         res.writeHead(404, {
@@ -12,15 +11,14 @@ export async function getAllCountryInfo(req, res) {
     }
     try {
         res.statusCode = 200;
-        const countryInfo = await fetchAllInfo(countryCode);
+        const countryFlag = await fetchFlag(countryCode);
 
-        res.end(JSON.stringify(countryInfo));
+        res.end(JSON.stringify(countryFlag));
     } catch (err) {
         console.log(err);
         res.writeHead(500, {
             'content-type': 'text/plain'
         });
-
         res.end('FETCH FAILED');
     }
 }

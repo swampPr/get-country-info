@@ -3,7 +3,7 @@
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <meta name="viewport" content="width=k, initial-scale=1.0" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <title>Document</title>
         <link href="https://cdn.jsdelivr.net/npm/tom-select/dist/css/tom-select.css" rel="stylesheet" />
         <link href="/style.css" rel="stylesheet" />
@@ -20,13 +20,25 @@
         <br />
         <!-- NOTE: ADD ALL BUTTONS HERE.-->
 
-        <button id="get-all">Get all information</button>
+        <div class="button-group">
+            <button id="get-flag">Get flag</button>
+            <button id="get-timezone">Get timezone(s)</button>
+            <button id="get-continents">Get continent(s)</button>
+            <button id="get-population">Get population</button>
+            <button id="get-all" class="primary-button">Get all information</button>
+            <button id="get-currency">Get currency info</button>
+            <button id="get-dial-code">Get dial code</button>
+            <button id="get-capital">Get capital</button>
+            <button id="get-coat">Get Coat of Arms</button>
+        </div>
         <br />
         <br />
         <br />
         <!-- NOTE: ADD ALL DIVS HERE FOR COUNTRY INFO -->
         <h2 id="country-name"></h2>
-        <h4 id="country-name-official"></h4>
+        <h4 id="country-extras-heading"></h4>
+        <ul id="extras-list"></ul>
+        <img src="" id="extras-img" alt="" />
         <label id="continents-label">
             <span id="continents-heading"></span>
             <ul id="continents"></ul>
@@ -37,6 +49,7 @@
             <ul id="languages-list"></ul>
         </label>
         <p id="population"></p>
+        <p id="calling-code"></p>
         <p id="car-side"></p>
         <p id="currency"></p>
         <label id="timezones-label">

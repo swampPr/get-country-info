@@ -6,7 +6,6 @@ import { htmlMid } from './middlewares/htmlMid.js';
 import { jsMid } from './middlewares/jsMid.js';
 import { router } from './routers/router.js';
 
-//NOTE: Localhost PORT that will host the server
 const PORT = process.env.PORT;
 
 //NOTE: Functions that will match the request to the correct middlewares
@@ -41,10 +40,8 @@ function runMiddlewares(req, res, stack) {
     next(i);
 }
 
-//NOTE: Server
 export const server = http.createServer((req, res) => {
     runMiddlewares(req, res, middlewareStack);
 });
 
-//NOTE: Server listener
 server.listen(PORT, () => console.log(`Server listening on port ${PORT}`));

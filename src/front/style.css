@@ -69,7 +69,7 @@ p {
 }
 
 /* Button */
-#get-all {
+button {
     margin-top: 1rem;
     padding: 0.5rem 1rem;
     background-color: #0077ff;
@@ -80,8 +80,17 @@ p {
     font-weight: bold;
 }
 
-#get-all:hover {
+button:hover {
     background-color: #005fe0;
+}
+
+.primary-button {
+    background-color: #e53935; /* strong red */
+    color: white;
+}
+
+.primary-button:hover {
+    background-color: #c62828; /* darker red on hover */
 }
 
 /* Lists */
@@ -134,4 +143,13 @@ img {
     img {
         max-width: 100%;
     }
+}
+
+.button-group {
+    display: grid;
+    grid-auto-flow: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.5rem;
 }

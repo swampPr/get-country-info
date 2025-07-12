@@ -7,6 +7,14 @@ import { serveHTML } from '../handlers/htmlServe.js';
 import { serveCSS } from '../handlers/cssServe.js';
 import { serveJS } from '../handlers/jsServe.js';
 import { serveFavicon } from '../handlers/faviconServe.js';
+import { getCapital } from '../handlers/getCapital.js';
+import { getContinent } from '../handlers/getContinent.js';
+import { getCallCode } from '../handlers/getCallCode.js';
+import { getFlag } from '../handlers/getFlag.js';
+import { getTimezones } from '../handlers/getTimezone.js';
+import { getCurrency } from '../handlers/getCurrency.js';
+import { getPopulation } from '../handlers/getPopulation.js';
+import { getCoat } from '../handlers/getCoat.js';
 
 //NOTE: This object routes the request to the appropriate handler
 const routers = {
@@ -16,7 +24,15 @@ const routers = {
     'GET /index.html': serveHTML,
     'GET /style.css': serveCSS,
     'GET /app.js': serveJS,
-    'GET /favicon': serveFavicon
+    'GET /favicon': serveFavicon,
+    'GET /capital': getCapital,
+    'GET /continent': getContinent,
+    'GET /callcode': getCallCode,
+    'GET /flag': getFlag,
+    'GET /timezone': getTimezones,
+    'GET /currency': getCurrency,
+    'GET /population': getPopulation,
+    'GET /coat': getCoat
 };
 
 //NOTE: This function will validate the URL and map it to the appropriate handler
@@ -40,7 +56,7 @@ export async function router(req, res) {
         }
     }
 
-    //NOTE: The code below will grab the pathname of the URL, split it into an array to create a route key. The route key is the request method (e.g GET) and the request URL (e.g /country)
+    //NOTE: The code below will grab the pathname of the URL, split it into an array to create a route key. The route key will be used to map the request to the appropriate handler
     const { pathname } = parse(req.url, true);
     const parts = pathname.split('/').filter(Boolean);
 
@@ -49,15 +65,15 @@ export async function router(req, res) {
     const handler = routers[routeKey];
 
     if (handler) {
-        //NOTE: The second part of the array will be added to the params of the request. Params are added to the end of the path name (e.g /country/US <- US is the param)
+        //NOTE: The second part of the array will be added to the params of the request.
         req.params = { code: parts[1] };
         await handler(req, res);
 
-        //NOTE: Return 0 === Return "Success"
         return 0;
     } else {
-        //NOTE: If URL is invalid
-        res.statusCode = 404;
+        res.writeHead(404, {
+            'content-type': 'application/json'
+        });
 
         res.end(
             JSON.stringify({

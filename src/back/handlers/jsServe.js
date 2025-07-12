@@ -1,4 +1,3 @@
-//NOTE: Importing necessary node modules
 import path from 'path';
 import url from 'url';
 import fs from 'fs/promises';
@@ -7,17 +6,17 @@ import fs from 'fs/promises';
 const __filename = url.fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
-//NOTE: Traversing the file system towards the app.js file
 const jsFile = path.join(__dirname, '..', '..', 'front', 'app.js');
 
-//NOTE: This function will read the file and send it to the browser or it will return a 500 code if something goes wrong
 export async function serveJS(req, res) {
     try {
         const file = await fs.readFile(jsFile, 'utf-8');
         res.statusCode = 200;
         res.end(file);
     } catch (err) {
-        res.statusCode = 500;
+        res.writeHead(500, {
+            'content-type': 'text/plain'
+        });
         res.end('FETCH FAILED');
     }
 }

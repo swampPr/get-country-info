@@ -1,4 +1,4 @@
-//NOTE: If the browser requests a .css file, then this middleware will add import headers to the response
+//NOTE: This middleware will add important headers to .css file responses
 export function cssMid(req, res, next) {
     res.setHeader('content-type', 'text/css');
     next();

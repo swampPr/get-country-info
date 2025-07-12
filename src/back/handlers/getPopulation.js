@@ -1,7 +1,6 @@
-import { fetchAllInfo } from '../services/fetchAllInfo.js';
+import { fetchPopulation } from '../services/fetchPopulation.js';
 
-export async function getAllCountryInfo(req, res) {
-    console.log(`HANDLER GOT REQUEST!`);
+export async function getPopulation(req, res) {
     const countryCode = req.params?.code;
     if (!countryCode) {
         res.writeHead(404, {
@@ -10,17 +9,17 @@ export async function getAllCountryInfo(req, res) {
 
         res.end('COUNTRY NOT FOUND');
     }
+
     try {
         res.statusCode = 200;
-        const countryInfo = await fetchAllInfo(countryCode);
+        const countryPopulation = await fetchPopulation(countryCode);
 
-        res.end(JSON.stringify(countryInfo));
+        res.end(JSON.stringify(countryPopulation));
     } catch (err) {
         console.log(err);
         res.writeHead(500, {
             'content-type': 'text/plain'
         });
-
         res.end('FETCH FAILED');
     }
 }
